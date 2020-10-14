@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!-- 构造器注入 -->
+    <bean id="user" class="com.huang.pojo.User">
+        <constructor-arg name="name" value="huangao"/>
+    </bean>
+
+    <!-- set方法注入 -->
+    <bean id="student" class="com.huang.pojo.Student">
+        <!-- 普通值 -->
+        <property name="name" value="fucker"/>
+        <!-- 对象 -->
+        <property name="girlfriend" ref="girl"/>
+        <!-- 数组 -->
+        <property name="books" >
+            <array>
+                <value>西游记</value>
+                <value>水浒传</value>
+                <value>红楼梦</value>
+                <value>三国演义</value>
+            </array>
+        </property>
+        <!-- List -->
+        <property name="hobbys">
+            <list>
+                <value>basketball</value>
+                <value>movies</value>
+                <value>games</value>
+            </list>
+        </property>
+        <!-- map -->
+        <property name="scores">
+            <map>
+                <entry key="英语" value="100" />
+                <entry key="计算机" value="100" />
+            </map>
+        </property>
+        <!-- set -->
+        <property name="idols">
+            <set>
+                <value>kobe</value>
+                <value>james</value>
+            </set>
+        </property>
+        <!-- properties-->
+        <property name="infos">
+            <props>
+                <prop key="name">huang</prop>
+                <prop key="age">18</prop>
+            </props>
+        </property>
+
+    </bean>
+
+    <bean id="girl" class="com.huang.pojo.Girl">
+        <property name="name" value="honey" />
+        <property name="age" value="18" />
+    </bean>
+</beans>

@@ -10,6 +10,7 @@
     <version>1.0-SNAPSHOT</version>
     <modules>
         <module>spring-01-helloworld</module>
+        <module>spring-02-ioc</module>
     </modules>
 
     <dependencies>
