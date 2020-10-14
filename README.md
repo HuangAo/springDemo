@@ -10,3 +10,5 @@ a spring demo
 #### spring-04-annotation：使用注解的方式
 
 #### spring-05-appconfig：使用纯java方式配置bean,彻底弃用xml配置文件
+
+#### spring-06-aop:  使用三种方式实现spring aop
