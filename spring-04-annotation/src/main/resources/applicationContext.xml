@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <!-- 开启注解 -->
+    <context:annotation-config />
+
+    <bean id="user" class="com.huang.pojo.User"/>
+
+    <bean id="cat" class="com.huang.pojo.Cat">
+        <property name="name" value="miaomiao"/>
+    </bean>
+
+    <bean id="cat1" class="com.huang.pojo.Cat">
+        <property name="name" value="miao1111"/>
+    </bean>
+
+    <bean id="dog" class="com.huang.pojo.Dog">
+        <property name="name" value="wangwang" />
+    </bean>
+
+</beans>
