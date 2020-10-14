@@ -2,17 +2,22 @@ package com.huang.pojo;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Component;
 
 /**
  * @author :huangao
  */
+@Component
 public class User {
 
+    @Value("huang")
     private String name;
+
     @Autowired
     private Dog dog;
+
     @Autowired
-    @Qualifier("cat1")
     private Cat cat;
 
     public String getName() {

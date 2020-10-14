@@ -13,5 +13,6 @@ public class SpringTest {
         ApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");
         User user = (User)context.getBean("user");
         System.out.println(user);
+        //System.out.println(user.getName());
     }
 }
