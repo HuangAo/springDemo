@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd
+        http://www.springframework.org/schema/aop
+        http://www.springframework.org/schema/aop/spring-aop.xsd">
+
+        <bean id="userService" class="com.huang.service.UserServiceImpl"/>
+        <!-- 实现了spring接口的切面 -->
+        <bean id="log" class="com.huang.log.Log"/>
+
+        <!-- 自定义的切面 -->
+        <bean id="log2" class="com.huang.log.Log2"/>
+
+        <bean id="log3" class="com.huang.log.Log3"/>
+
+        <!-- AOP实现方式一:使用Spring 接口 -->
+        <!-- aop 配置 -->
+        <aop:config>
+                <!-- 定义切点 -->
+                <aop:pointcut id="userPointCut" expression="execution(* com.huang.service.UserServiceImpl.*(..))"/>
+                <!-- 执行环绕增强 -->
+                <aop:advisor advice-ref="log" pointcut-ref="userPointCut"/>
+        </aop:config>
+
+
+        <!-- AOP实现方式二:自定义切面 -->
+       <aop:config>
+               <!-- 定义切点 -->
+               <aop:pointcut id="userPointCut" expression="execution(* com.huang.service.UserServiceImpl.*(..))"/>
+               <aop:aspect id="myAspect" ref="log2">
+                       <aop:before method="beforeLog" pointcut-ref="userPointCut"/>
+                       <aop:after method="aftertLog" pointcut-ref="userPointCut"/>
+               </aop:aspect>
+       </aop:config>
+
+        <!-- AOP实现方式三:注解 -->
+        <aop:aspectj-autoproxy />
+
+</beans>
