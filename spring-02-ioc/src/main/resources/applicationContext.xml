@@ -8,6 +8,11 @@
         <constructor-arg name="name" value="huangao"/>
     </bean>
 
+    <!-- bean的默认作用域是单例 可通过scope设置成prototype/request/session-->
+    <bean id="user2" class="com.huang.pojo.User" scope="prototype">
+        <constructor-arg name="name" value="huangao"/>
+    </bean>
+
     <!-- set方法注入 -->
     <bean id="student" class="com.huang.pojo.Student">
         <!-- 普通值 -->
